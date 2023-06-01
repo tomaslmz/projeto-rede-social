@@ -1,0 +1,27 @@
+<style>
+    footer {
+        position: absolute;
+        bottom: 0px;
+    }
+</style>
+<header>
+    <h1>Rede social</h1>
+
+    <nav>
+        <a href="#">Postar</a>
+    </nav>
+</header>
+<main>
+    {{#each postagens}}
+        <article class="postagem">
+            <h2>{titulo}</h2>
+            <h4>{usuario}</h4>
+            <p>{conteudo}</p>
+
+            <small>{createdAt}</small>
+        </article>
+    {{/each}}
+</main>
+<footer>
+    <p>Criado por <a href="https://github.com/tomaslmz">Tomás</a></p>
+</footer>
