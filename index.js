@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const Usuarios = require('./model/Usuarios');
 const Postagens = require('./model/Postagens');
 
+var users;
+
 app.engine("handlebars", handlebars.engine({
     defaultLayout: 'main',
     
@@ -37,7 +39,7 @@ app.post('/registrar', (req, res) => {
     }).then(() => {
         res.redirect('/');
     }).catch((erro) => {
-        res.send("ERRO NO REGISTRO DO USUÁRIO!<br>+" + erro);
+        res.redirect("/registro");
     });
 });
 
@@ -51,20 +53,46 @@ app.post('/logar', async (req, res) => {
     // }).catch((erro) => {
     //     res.send("ERRO AO LOGAR: " + erro);
     // });
-    const user = await Usuarios.findOne({where: {'email' : req.body.email,'senha' : req.body.senha}});
+    user = await Usuarios.findOne({where: {'email' : req.body.email,'senha' : req.body.senha}});
 
     if(!user) {
         res.redirect("/login");
     } else {
+        users = await Usuarios.findOne({where: {'email' : req.body.email, 'senha' : req.body.senha}});
         res.redirect("/inicio");
     }
 });
 
+app.get("/inicio", async (req, res) => {
 
-app.get("/inicio", (req, res) => {
-    res.render('inicio');
+    const posts = await Postagens.findAll({order: [['id', 'DESC']]});
+    if(!users) {
+        res.redirect('/');
+    } else {
+        res.render("inicio", {usuario: users, posts: posts});
+    }
 });
 
+app.get("/post", (req, res) => {
+    res.render("post");
+});
+
+app.post("/postar", (req, res) => {
+    Postagens.create({
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo,
+        idUsuario: users.id
+    }).then(() => {
+        res.redirect("inicio");
+    }).catch((erro) => {
+        res.send(erro);
+    })
+});
+
+app.get("/sair", (req, res) => {
+    users = null;
+    res.redirect("/");
+});
 
 
 app.listen(8081, () => {

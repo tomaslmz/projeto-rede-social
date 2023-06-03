@@ -1,24 +1,124 @@
 <style>
-    footer {
-        position: absolute;
-        bottom: 0px;
+     * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
     }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+    }
+
+    header {
+        color: white;
+        background-color: black;
+        width: 100vw;
+        margin-left: -20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header > p {
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    header > span {
+        font-weight: bolder;
+        color: white;
+    }
+
+    header a {
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+        color: black;
+        font-weight: bolder;
+        text-decoration: none;;
+        transition: all 0.3s;
+        margin-right: 10px;
+    }
+
+    header a:hover {
+        background-color: rgb(73, 73, 73);
+        color: white;
+    }
+
+    main {
+        display: block;
+        background-color: rgb(216, 216, 216);
+        margin-left: -10px;
+        width: 90vw;
+        margin: auto;
+        height: 100vw;
+        padding: 20px;
+        color: black;
+        border-radius: 15px;
+    }
+
+    article {
+        margin-bottom: 20px;
+    }
+
+    .postagem {
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .postagem h2 {
+        text-align: center;
+    }
+
+    .postagem h4 {
+        margin-left: 10px;
+    }
+
+    .postagem p {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    footer {
+        bottom: 0px;
+        background-color: black;
+        width: 100vw;
+        margin-left: -20px;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+
+    footer a {
+        color: white;
+    }
+
+    footer a:hover {
+        text-decoration: none;
+        color: white;
+    }
+    
 </style>
 <header>
     <h1>Rede social</h1>
-
+    <p>Olá, <span>{{usuario.nome}}!</span></p>
     <nav>
-        <a href="#">Postar</a>
+        <a href="/post">Postar</a>
+        <a href="/sair">Sair</a>
     </nav>
 </header>
 <main>
-    {{#each postagens}}
+    {{#each posts}}
         <article class="postagem">
-            <h2>{titulo}</h2>
-            <h4>{usuario}</h4>
-            <p>{conteudo}</p>
+            <h2>{{titulo}}</h2>
+            <h4>{{idUsuario}}</h4>
+            <p>{{conteudo}}</p>
 
-            <small>{createdAt}</small>
+            <small>{{createdAt}}</small>
         </article>
     {{/each}}
 </main>

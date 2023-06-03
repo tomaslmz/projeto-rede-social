@@ -14,10 +14,10 @@ const Postagens = db.sequelize.define('postagens', {
     },
 
     idUsuario: {
-        type: db.Sequelize.INTEGER
+        type: db.Sequelize.INTEGER, allowNull: false
     }
 });
 
-//Postagens.sync({force: true});
+// Postagens.sync({force: true});
 
 module.exports = Postagens;

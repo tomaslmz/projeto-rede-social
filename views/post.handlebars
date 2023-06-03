@@ -1,5 +1,5 @@
 <style>
-     * {
+    * {
         margin: 0;
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -36,12 +36,15 @@
         text-align: center;
     }
 
+    main div {
+        margin-bottom: 10px;
+    }
+
     .btn {
         text-align: center;
     }
 
     .btn > input {
-        margin-top: 10px;
         color: white;
         background-color: black;
         border: none;
@@ -49,6 +52,7 @@
         border-radius: 20px;
         font-weight: bolder;
         cursor: pointer;
+        transition: all 0.3s;
     }
 
     .btn > input:hover {
@@ -67,10 +71,6 @@
         text-align: center;
     }
 
-    main div {
-        margin-bottom: 5px;
-    }
-
     footer a {
         color: white;
     }
@@ -79,35 +79,31 @@
         text-decoration: none;
         color: white;
     }
+
 </style>
+
 <header>
-        <h1>Rede social</h1>
+    <h1>Rede social</h1>
 </header>
 <main>
     <article>
-        <h2>Crie sua conta</h2>
-        <form action="/registrar" method="post">
+        <h2>Escreva o seu post</h2>
+        <form action="/postar" method="post">
             <div>
-                <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <label for="titulo">Título</label>
+                <input type="titulo" name="titulo" id="titulo" required>
             </div>
-            
             <div>
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" placeholder="E-mail" required>
-            </div>
-
-            <div>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <label for="conteudo">Conteúdo:</label>
+                <br>
+                <textarea name="conteudo" id="conteudo" cols="30" rows="10"></textarea>
             </div>
             <div class="btn">
-                <input type="submit" value="Registrar">
+                <input type="submit" value="Postar">
             </div>
         </form>
     </article>
 </main>
-
 <footer>
     <p>Criado por <a href="https://github.com/tomaslmz">Tomás</a></p>
 </footer>

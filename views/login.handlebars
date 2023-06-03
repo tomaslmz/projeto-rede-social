@@ -1,4 +1,84 @@
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+    }
+
+    header {
+        background-color: black;
+        width: 100vw;
+        margin-left: -20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    main {
+        position: fixed;
+        background-color: rgb(216, 216, 216);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        color: black;
+        border-radius: 15px;
+    }
+
+    main h2 {
+        padding: 10px;
+        text-align: center;
+    }
+
+    main div {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .btn > input {
+        color: white;
+        background-color: black;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-weight: bolder;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn > input:hover {
+        background-color: rgb(36, 36, 36);
+        text-decoration: underline;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0px;
+        background-color: black;
+        width: 100vw;
+        margin-left: -20px;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+
+    footer a {
+        color: white;
+    }
+
+    footer a:hover {
+        text-decoration: none;
+        color: white;
+    }
 
 </style>
 
@@ -17,7 +97,9 @@
                 <label for="senha">Senha:</label>
                 <input type="password" name="senha" id="senha" required>
             </div>
-            <input type="submit" value="Entrar">
+            <div class="btn">
+                <input type="submit" value="Entrar">
+            </div>
         </form>
     </article>
 </main>
