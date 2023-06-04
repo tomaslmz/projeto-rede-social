@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/tomaslmz/projeto-rede-social/issues"
   },
-  "homepage": "https://github.com/tomaslmz/projeto-rede-social#readme"
+  "homepage": "https://github.com/tomaslmz/projeto-rede-social#readme",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
+  }
 }
