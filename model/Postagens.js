@@ -9,12 +9,8 @@ const Postagens = db.sequelize.define('postagens', {
         type: db.Sequelize.TEXT, allowNull: false
     },
 
-    curtidas: {
-        type: db.Sequelize.INTEGER, allowNull: true
-    },
-
    idUsuario: {
-        type: db.Sequelize.INTEGER,
+        type: db.Sequelize.INTEGER, allowNull: false,
         references: {
             model: 'usuarios',
             key: 'id'
