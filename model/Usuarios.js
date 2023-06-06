@@ -10,8 +10,8 @@ const Usuarios = db.sequelize.define('usuarios', {
     email: {
         type: db.Sequelize.STRING(50), allowNull: false, unique: true
     }
-})
+});
 
-// Usuarios.sync({force: true});
+//Usuarios.sync({force: true});
 
 module.exports = Usuarios;
